@@ -2,6 +2,7 @@ import numpy as np
 import csv
 import cv2
 import tensorflow as tf
+import matplotlib.pyplot as plt
 
 from keras.datasets import cifar10
 from keras.models import Sequential
@@ -27,17 +28,26 @@ with open(FLAGS.dataPath+'\\driving_log.csv', mode='r') as infile:
 images = []
 measurements = []
 for line in lines:
-    sourcePath = line[0]
-    filename = sourcePath.split('\\')[-1]
-    image = cv2.imread(FLAGS.dataPath+'\\IMG\\'+filename)
-    images.append(image)
-    measurement = float(line[3])
-    measurements.append(measurement)
+    for i in range(3):    
+        sourcePath = line[i]
+        filename = sourcePath.split('\\')[-1]
+        image = cv2.imread(FLAGS.dataPath+'\\IMG\\'+filename)
+        images.append(image)
+    steering_center = float(line[3])
+    # create adjusted steering measurements for the side camera images
+    correction = 0.2 # this is a parameter to tune
+    steering_left = steering_center + correction
+    steering_right = steering_center - correction
+    measurements.append(steering_center)
+    measurements.append(steering_left) 
+    measurements.append(steering_right)
+    '''
     #flip the images and measurements to generate more training data and teach car to turn right
     image_flipped = np.fliplr(image)
     images.append(image_flipped)
     measurement_flipped = -measurement
     measurements.append(measurement_flipped)
+    '''
 
 X_train = np.array(images)
 y_train = np.array(measurements)
@@ -68,7 +78,15 @@ model.add(Dense(1))
 
 
 model.compile(loss='mse', optimizer='adam')
-history = model.fit(X_train,y_train,nb_epoch=int(FLAGS.epochs), validation_split=0.2, shuffle=True)
+history_object = model.fit(X_train,y_train,nb_epoch=int(FLAGS.epochs), validation_split=0.2, shuffle=True)
 
 model.save('model.h5')
 
+### plot the training and validation loss for each epoch
+plt.plot(history_object.history['loss'])
+plt.plot(history_object.history['val_loss'])
+plt.title('model mean squared error loss')
+plt.ylabel('mean squared error loss')
+plt.xlabel('epoch')
+plt.legend(['training set', 'validation set'], loc='upper right')
+plt.show()
