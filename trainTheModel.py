@@ -33,7 +33,11 @@ for line in lines:
     images.append(image)
     measurement = float(line[3])
     measurements.append(measurement)
-
+    #flip the images and measurements to generate more training data and teach car to turn right
+    image_flipped = np.fliplr(image)
+    images.append(image_flipped)
+    measurement_flipped = -measurement
+    measurements.append(measurement_flipped)
 
 X_train = np.array(images)
 y_train = np.array(measurements)
