@@ -18,36 +18,38 @@ FLAGS = flags.FLAGS
 # command line flags
 flags.DEFINE_string('dataPath', '', "Patch to driving_log.csv and IMG folder")
 flags.DEFINE_string('epochs', '10', "Number of training epochs ")
-print(FLAGS.dataPath)
-lines = []
-with open(FLAGS.dataPath+'\\driving_log.csv', mode='r') as infile:
-        reader = csv.reader(infile)
-        for line in reader:
-            lines.append(line)
- 
+dataPaths = FLAGS.dataPath.split(',')
 images = []
 measurements = []
-for line in lines:
-    for i in range(3):    
-        sourcePath = line[i]
-        filename = sourcePath.split('\\')[-1]
-        image = cv2.imread(FLAGS.dataPath+'\\IMG\\'+filename)
-        images.append(image)
-    steering_center = float(line[3])
-    # create adjusted steering measurements for the side camera images
-    correction = 0.2 # this is a parameter to tune
-    steering_left = steering_center + correction
-    steering_right = steering_center - correction
-    measurements.append(steering_center)
-    measurements.append(steering_left) 
-    measurements.append(steering_right)
-    '''
-    #flip the images and measurements to generate more training data and teach car to turn right
-    image_flipped = np.fliplr(image)
-    images.append(image_flipped)
-    measurement_flipped = -measurement
-    measurements.append(measurement_flipped)
-    '''
+for dataPath in dataPaths:
+	print(dataPath)
+	lines = []
+	with open(dataPath+'\\driving_log.csv', mode='r') as infile:
+			reader = csv.reader(infile)
+			for line in reader:
+				lines.append(line)
+
+	for line in lines:
+		for i in range(3):    
+			sourcePath = line[i]
+			filename = sourcePath.split('\\')[-1]
+			image = cv2.imread(dataPath+'\\IMG\\'+filename)
+			images.append(image)
+		steering_center = float(line[3])
+		# create adjusted steering measurements for the side camera images
+		correction = 0.2 # this is a parameter to tune
+		steering_left = steering_center + correction
+		steering_right = steering_center - correction
+		measurements.append(steering_center)
+		measurements.append(steering_left) 
+		measurements.append(steering_right)
+		'''
+		#flip the images and measurements to generate more training data and teach car to turn right
+		image_flipped = np.fliplr(image)
+		images.append(image_flipped)
+		measurement_flipped = -measurement
+		measurements.append(measurement_flipped)
+		'''
 
 X_train = np.array(images)
 y_train = np.array(measurements)
