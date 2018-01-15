@@ -57,9 +57,10 @@ for dataPath in dataPaths:
 		measurements.append(measurement_flipped)
 		'''
 
+images, measurements = shuffle(images, measurements) # shuffling list uses less RAM then array
 X_train = np.array(images)
 y_train = np.array(measurements)
-X_train, y_train = shuffle(X_train, y_train)
+
 
 model = Sequential()
 model.add(Lambda(lambda x: (x / 255.0) - 0.5, input_shape=(160,320,3)))
@@ -87,7 +88,6 @@ history_object = model.fit(X_train,y_train,nb_epoch=int(FLAGS.epochs), validatio
 model.save(FLAGS.output + '.h5')
 
 ### plot the training and validation loss for each epoch
-'''
 plt.plot(history_object.history['loss'])
 plt.plot(history_object.history['val_loss'])
 plt.title('model mean squared error loss')
@@ -95,4 +95,3 @@ plt.ylabel('mean squared error loss')
 plt.xlabel('epoch')
 plt.legend(['training set', 'validation set'], loc='upper right')
 plt.show()
-'''

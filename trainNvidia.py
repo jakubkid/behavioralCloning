@@ -33,6 +33,7 @@ for dataPath in dataPaths:
 			for line in reader:
 				lines.append(line)
 
+    
 	for line in lines:
 		for i in range(3):    
 			sourcePath = line[i]
@@ -56,10 +57,9 @@ for dataPath in dataPaths:
 		measurement_flipped = -measurement
 		measurements.append(measurement_flipped)
 		'''
-
+images, measurements = shuffle(images, measurements) # shuffling list uses less RAM then array
 X_train = np.array(images)
 y_train = np.array(measurements)
-X_train, y_train = shuffle(X_train, y_train)
 
 model = Sequential()
 model.add(Lambda(lambda x: (x / 255.0) - 0.5, input_shape=(160,320,3)))
