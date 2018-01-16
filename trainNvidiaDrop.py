@@ -49,15 +49,9 @@ for dataPath in dataPaths:
 		measurements.append(steering_center)
 		measurements.append(steering_left) 
 		measurements.append(steering_right)
-		'''
-		#flip the images and measurements to generate more training data and teach car to turn right
-		image_flipped = np.fliplr(image)
-		images.append(image_flipped)
-		measurement_flipped = -measurement
-		measurements.append(measurement_flipped)
-		'''
 
-images, measurements = shuffle(images, measurements) # shuffling list uses less RAM then array
+
+images, measurements = shuffle(images, measurements) # shuffling list uses much less RAM then array, 8GB RAM was suffisient 
 X_train = np.array(images)
 y_train = np.array(measurements)
 
