@@ -11,14 +11,14 @@
 
 [25epDropout]:  ./nvidiaDropoutTraining25Epochs.png "Training with drop out"
 [25epNvid]: ./nvidiaTraining25Epochs.png "Training without drop out"
-[centerDriving]: ./Record/center_2018_01_11_19_51_28_257.jpg "Example of center driving"
-[centerDrivingOpp]: ./RecordOpposite/center_2018_01_11_19_56_06_394.jpg "Example of center driving in opposite direction"
-[recoveryRight]: ./Recovery/center_2018_01_13_21_12_05_988.jpg "Example of Recovery from right"
-[recoveryLeft]: ./Recovery/center_2018_01_13_21_12_24_650.jpg "Example of Recovery from left"
-[centerDriving1]: ./Record1/center_2018_01_11_20_21_18_106.jpg "Example of center driving on right track"
-[centerDrivingOpp1]: ./Record1Opposite/center_2018_01_11_20_42_56_162.jpg "Example of center driving in opposite direction right track"
-[recoveryRight1]: ./Recovery1/center_2018_01_15_12_03_21_672.jpg "Example of Recovery from right right track"
-[recoveryLeft1]: ./Recovery1/center_2018_01_15_12_02_17_227.jpg "Example of Recovery from left right track"
+[centerDriving]: ./Record/IMG/center_2018_01_11_19_51_28_257.jpg "Example of center driving"
+[centerDrivingOpp]: ./RecordOpposite/IMG/center_2018_01_11_19_56_06_394.jpg "Example of center driving in opposite direction"
+[recoveryRight]: ./Recovery/IMG/center_2018_01_13_21_12_05_988.jpg "Example of Recovery from right"
+[recoveryLeft]: ./Recovery/IMG/center_2018_01_13_21_12_24_650.jpg "Example of Recovery from left"
+[centerDriving1]: ./Record1/IMG/center_2018_01_11_20_21_18_106.jpg "Example of center driving on right track"
+[centerDrivingOpp1]: ./Record1Opposite/IMG/center_2018_01_11_20_42_56_162.jpg "Example of center driving in opposite direction right track"
+[recoveryRight1]: ./Recovery1/IMG/center_2018_01_15_12_03_21_672.jpg "Example of Recovery from right right track"
+[recoveryLeft1]: ./Recovery1/IMG/center_2018_01_15_12_02_17_227.jpg "Example of Recovery from left right track"
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
@@ -62,9 +62,10 @@ The model includes RELU layers to introduce nonlinearity (model.py lines 62,54,6
 
 #### 2. Attempts to reduce overfitting in the model
 
-The model contains dropout layers between each convolution layer in order to reduce overfitting (model.py lines 63,65,67,69). 
+The model contains dropout layers between each convolution layer in order to reduce overfitting (model.py lines 63,65,67,69).
+
 Plot of training model (model.py) for 25 epochs:
-![Training model for 25 epoch with dropout][25bepDropout]
+![Training model for 25 epoch with dropout][25epDropout]
 
 Plot of training model without dropout (trainNvidia.py) for 25 epochs:
 ![Training model for 25 epoch without dropout][25epNvid]
@@ -125,19 +126,17 @@ Then I repeated this process on right track in order to get more data points.
 Centrer driving:
 ![Centrer driving][centerDriving1]
 
-Next I recorded one lap of centrer driving on left track driving in opposite direction
+Right track in opposite direction:
 ![Centrer driving opposite][centerDrivingOpp1]
 
-I then recorded the vehicle recovering from the left side and right sides of the road back to centrer.
-
-Recover from right:
+Right track Recover from right:
 ![Recover from right][recoveryRight1]
 
-Recovery from left:
+Right track Recovery from left:
 ![Recovery from left][recoveryLeft1]
 
 
-After the collection process, I had 28455 number of data points. I then converted images from GRB to RGB format.
+After the collection process, I had 28455 number of data points. I then converted images from BGR to RGB format.
 
 Finally I randomly shuffled the data set and put 20% of the data into a validation set. 
 
