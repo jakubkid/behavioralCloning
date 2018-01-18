@@ -17,7 +17,7 @@
 [recoveryLeft]: ./Recovery/IMG/center_2018_01_13_21_12_24_650.jpg "Example of Recovery from left"
 [centerDriving1]: ./Record1/IMG/center_2018_01_11_20_21_18_106.jpg "Example of center driving on right track"
 [centerDrivingOpp1]: ./Record1Opposite/IMG/center_2018_01_11_20_42_56_162.jpg "Example of center driving in opposite direction right track"
-[recoveryRight1]: ./Recovery1/IMG/center_2018_01_15_12_03_21_672.jpg "Example of Recovery from right right track"
+[recoveryRight1]: ./Recovery1/IMG/center_2018_01_15_12_04_07_229.jpg "Example of Recovery from right right track"
 [recoveryLeft1]: ./Recovery1/IMG/center_2018_01_15_12_02_17_227.jpg "Example of Recovery from left right track"
 
 ## Rubric Points
