@@ -9,16 +9,16 @@
 
 [//]: # (Image References)
 
-[25epDropout]:  ./nvidiaDropoutTraining25Epochs.png "Training with drop out"
-[25epNvid]: ./nvidiaTraining25Epochs.png "Training without drop out"
-[centerDriving]: ./Record/IMG/center_2018_01_11_19_51_28_257.jpg "Example of center driving"
-[centerDrivingOpp]: ./RecordOpposite/IMG/center_2018_01_11_19_56_06_394.jpg "Example of center driving in opposite direction"
-[recoveryRight]: ./Recovery/IMG/center_2018_01_13_21_12_05_988.jpg "Example of Recovery from right"
-[recoveryLeft]: ./Recovery/IMG/center_2018_01_13_21_12_24_650.jpg "Example of Recovery from left"
-[centerDriving1]: ./Record1/IMG/center_2018_01_11_20_21_18_106.jpg "Example of center driving on right track"
-[centerDrivingOpp1]: ./Record1Opposite/IMG/center_2018_01_11_20_42_56_162.jpg "Example of center driving in opposite direction right track"
-[recoveryRight1]: ./Recovery1/IMG/center_2018_01_15_12_04_07_229.jpg "Example of Recovery from right right track"
-[recoveryLeft1]: ./Recovery1/IMG/center_2018_01_15_12_02_17_227.jpg "Example of Recovery from left right track"
+[25epDropout]:  ./reportPics/nvidiaDropoutTraining25Epochs.png "Training with drop out"
+[25epNvid]: ./reportPics/nvidiaTraining25Epochs.png "Training without drop out"
+[centerDriving]: ./reportPics/center_2018_01_11_19_51_28_257.jpg "Example of center driving"
+[centerDrivingOpp]: ./reportPics/center_2018_01_11_19_56_06_394.jpg "Example of center driving in opposite direction"
+[recoveryRight]: ./reportPics/center_2018_01_13_21_12_05_988.jpg "Example of Recovery from right"
+[recoveryLeft]: ./reportPics/center_2018_01_13_21_12_24_650.jpg "Example of Recovery from left"
+[centerDriving1]: ./reportPics/center_2018_01_11_20_21_18_106.jpg "Example of center driving on right track"
+[centerDrivingOpp1]: ./reportPics/center_2018_01_11_20_42_56_162.jpg "Example of center driving in opposite direction right track"
+[recoveryRight1]: ./reportPics/center_2018_01_15_12_04_07_229.jpg "Example of Recovery from right right track"
+[recoveryLeft1]: ./reportPics/center_2018_01_15_12_02_17_227.jpg "Example of Recovery from left right track"
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
@@ -35,8 +35,8 @@ My project includes the following files:
 * video.mp4 Recording of autonomous run on left track
 * video1.mp4 Recording of autonomous run on right track 
 * writeup_report.md this document
-* Record/, RecordOpposite/, Recovery - Data collected for left track
-* Record1/, Record1Opposite/, Recovery1 - Data collected for right track
+* Record.zip, RecordOpposite.zip, Recovery.zip - Data collected for left track
+* Record1.zip, Record1Opposite.zip, Recovery1.zip - Data collected for right track
 
 
 #### 2. Submission includes functional code
@@ -70,7 +70,7 @@ Plot of training model (model.py) for 25 epochs:
 Plot of training model without dropout (trainNvidia.py) for 25 epochs:
 ![Training model for 25 epoch without dropout][25epNvid]
 
-The model was trained and validated on different data sets to ensure that the model was not overfitting, see folders (Record/, RecordOpposite/, Recovery, Record1/, Record1Opposite/, Recovery1). 
+The model was trained and validated on different data sets to ensure that the model was not overfitting, see folders (Record.zip, RecordOpposite.zip, Recovery.zip, Record1.zip, Record1Opposite.zip, Recovery1.zip). 
 The model was tested by running it through the simulator and ensuring that the vehicle could stay on the track, see video.mp4 and video1.mp4.
 
 
