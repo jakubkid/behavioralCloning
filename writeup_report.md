@@ -109,6 +109,7 @@ The model includes RELU layers to introduce nonlinearity (model.py lines 62,54,6
 #### 3. Creation of the Training Set & Training Process
 
 To capture good driving behaviour, I first recorded one lap on left track using centrer lane driving. Here is an example image of centrer lane driving:
+
 ![Centrer driving][centerDriving]
 
 Next I recorded one lap of centrer driving on left track driving in opposite direction
@@ -117,9 +118,11 @@ Next I recorded one lap of centrer driving on left track driving in opposite dir
 I then recorded the vehicle recovering from the left side and right sides of the road back to centrer.
 
 Recover from right:
+
 ![Recover from right][recoveryRight]
 
 Recovery from left:
+
 ![Recovery from left][recoveryLeft]
 
 Then I repeated this process on right track in order to get more data points.
@@ -127,12 +130,15 @@ Centrer driving:
 ![Centrer driving][centerDriving1]
 
 Right track in opposite direction:
+
 ![Centrer driving opposite][centerDrivingOpp1]
 
 Right track Recover from right:
+
 ![Recover from right][recoveryRight1]
 
 Right track Recovery from left:
+
 ![Recovery from left][recoveryLeft1]
 
 
