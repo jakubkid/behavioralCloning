@@ -54,7 +54,7 @@ The model.py file contains the code for training and saving the convolution neur
 
 ### Model Architecture and Training Strategy
 
-#### 1. An model based on [NVIDIA structure](https://arxiv.org/pdf/1704.07911.pdf) was used
+#### 1. An model based on [PilotNet](https://arxiv.org/pdf/1704.07911.pdf) was used
 
 My model consists of a convolution neural network with 5x5 filter sizes and depths 24, 36 and 48 (model.py lines 62-66) and two 3x3 filter with depth 64 (model.py lines 68-70) followed with 3 fully connected layers (model.py lines 72-76) 
 
