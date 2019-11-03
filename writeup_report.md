@@ -80,7 +80,7 @@ The model used an adam optimizer, so the learning rate was not tuned manually (m
 
 #### 4. Appropriate training data
 
-Training data was chosen to keep the vehicle driving on the road. I used a combination of centre lane driving in both directions, recovering from the left and right sides of the road on both tracks which resulted in 28455 training images.  
+Training data was chosen to keep the vehicle driving on the road. I used a combination of centre lane driving in both directions, recovering from the left and right sides of the road on both tracks which resulted in 28455 training images.
 
 For details about how I created the training data, see the next section. 
 
@@ -90,7 +90,7 @@ For details about how I created the training data, see the next section.
 
 The overall strategy for deriving a model architecture was to create and train the model which can complete both tracks in autonomous mode
 
-My first step was to use a convolution neural network model similar to the based on [NVIDIA structure](https://arxiv.org/pdf/1704.07911.pdf) I thought this model might be appropriate because it already demonstrated its usability in real word scenario. 
+My first step was to use a convolution neural network model similar to the based on [PilotNet](https://arxiv.org/pdf/1704.07911.pdf) I thought this model might be appropriate because it already demonstrated its usability in real word scenario. 
 
 In order to gauge how well the model was working, I split my image and steering angle data into a training and validation set. I found that my first model had a low mean squared error on the training set but a high mean squared error on the validation set.(see trainNvidia.py) This implied that the model was overfitting. 
 
